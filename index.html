@@ -1,293 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Plantify</title>
-    <!-- Boostrap 5 Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500&display=swap" rel="stylesheet" />
-    <!-- FontAwesome CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css" />
-    <!-- Icon -->
-  </head>
 
-  <body>
-    <!-- Navbar -->
-    <nav class="navbar">
-      <div class="navbar-logo">
-        <a href="#"><img src="images/logo/Plantify Logo.png" alt="" /></a>
-        <a href="#" class="text-logo">Plantify</a>
-      </div>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-      <div class="navbar-nav">
-        <a href="#menu">Products</a>
-        <a href="#about" id="">About</a>
-        <a href="#contact">Contact us</a>
-      </div>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-      <div class="navbar-extra">
-        <a href="#" id="profile"><i class="bi bi-person"></i></a>
-        <a href="#" id="shopping-cart"><i class="bi bi-cart3"></i></a>
-        <a href="#" id="hamburger-menu"><i class="bi bi-list"></i></a>
-      </div>
-    </nav>
-    <!-- End Navbar -->
+    <!-- Sweet Alert -->
+    <link href=" https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.min.css" rel="stylesheet">
 
-    <!--  -->
+    <!-- Google style -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,600;1,600&display=swap"
+        rel="stylesheet">
+    <title>Login | Plantify</title>
+</head>
 
-    <!-- Hero -->
-    <section class="hero">
-      <main class="content">
-        <div class="fill-logo">
-          <h1>🌱</h1>
-          <h1>Premium Plants</h1>
-          <p>Flowers always make people better, happier and more helpful, they are sunshine, food and medicine for the soul</p>
-          <a href="#product" class="cta">Discovery our collection</a>
-        </div>
-      </main>
-    </section>
-    <!-- End Hero -->
+<body>
+    <div class="container">
+        <div class="signin-signup">
+            <form action="" class="sign-in-form">
+                <!-- Bagian sign in -->
+                <div class="header">
+                    <h1 class="title">Account Login</h1>
+                    <p>If you are already a member you can login with your email address and password.</p>
+                </div>
+                <div class="input-field">
+                    <label for="email">Email address</label>
+                    <input type="email" class="form-control" id="email" placeholder="" required autocomplete="off">
+                </div>
+                <div class="input-field">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" placeholder="">
+                </div>
+                <div class="login-remember">
+                    <input type="checkbox" name="rememberme" id="rememberme"> Remember Me
+                </div>
+                <div class="input-field">
+                    <input type="submit" value="Login" class="btn" id="btn">
+                </div>
+                <div class="input-field">
+                    <span>Don't have an accout ? <a href="" class="signup-anchor"> Sign up here</a></span>
+                </div>
+            </form>
+            <!-- Bagian sign up -->
+            <form action="" class="sign-up-form">
+                <div class="header">
+                    <h1 class="title">Account Signup</h1>
+                    <p>Become a member and enjoy exclusive promotions</p>
+                </div>
+                <div class="input-field">
+                    <label for="name">Full Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="" required autocomplete="off">
+                </div>
+                <div class="input-field">
+                    <label for="email">Email address</label>
+                    <input type="email" class="form-control" id="email" placeholder="" required autocomplete="off">
+                </div>
+                <div class="input-field">
+                    <label for="gender">Gender</label>
+                    <input type="text" class="form-control" id="email" placeholder="" required autocomplete="off">
+                </div>
+                <!-- begin date of birth -->
+                <div class="input-field">
+                    <label for="date">Date of Birth</label>
+                    <input placeholder="" class="form-control" type="text" onfocus="(this.type='date')"
+                        onblur="(this.type='text')" id="date" />
+                    <script>
+                        $("input").on("change", function () {
+                            this.setAttribute(
+                                "data-date",
+                                moment(this.value, "YYYY-MM-DD")
+                                .format(this.getAttribute("data-date-format"))
+                            )
+                        }).trigger("change")
+                    </script>
 
-    <!-- Products -->
-    <section id="menu" class="menu">
-      <h2>Products</h2>
-      <p>Order it for you of for your beloved ones</p>
-      <div class="grid">
-        <div class="grid-item">
-          <div class="card">
-            <img class="card-img" src="images/products/1.jpg" alt="" />
-            <div class="card-content">
-              <h3 class="card-header">Monstera delicious</h3>
-              <p class="card-price">$ 25.00</p>
-            </div>
-          </div>
+                    <!-- end of date of birth -->
+                </div>
+                <div class="input-field">
+                    <input type="submit" value="Login" class="btn" id="btn2">
+                </div>
+            </form>
         </div>
-        <div class="grid-item">
-          <div class="card">
-            <img class="card-img" src="images/products/2.jpg" alt="" />
-            <div class="card-content">
-              <h3 class="card-header">Monstera Adansonii</h3>
-              <p class="card-price">$ 150.00</p>
+        <div class="panels-container">
+            <div class="panel left-panel">
+                <div class="content">
+                    <h3>Member of Brand?</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque accusantium dolor, eos incidunt
+                        minima iure?</p>
+                    <button class="btn" id="sign-in-btn">Sign in</button>
+                </div>
+                <img src="signin.svg" alt="" class="image">
             </div>
-          </div>
-        </div>
-        <div class="grid-item">
-          <div class="card">
-            <img class="card-img" src="images/products/3.jpg" alt="" />
-            <div class="card-content">
-              <h3 class="card-header">Palor Palm</h3>
-              <p class="card-price">$ 16.50</p>
+            <div class="panel right-panel">
+                <div class="content">
+                    <h3>New to Brand?</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque accusantium dolor, eos incidunt
+                        minima iure?</p>
+                    <button class="btn" id="sign-up-btn">Sign up</button>
+                </div>
+                <img src="signup.svg" alt="" class="image">
             </div>
-          </div>
         </div>
-        <div class="grid-item">
-          <div class="card">
-            <img class="card-img" src="images/products/4.jpg" alt="" />
-            <div class="card-content">
-              <h3 class="card-header">String of Turtles</h3>
-              <p class="card-price">$ 35.00</p>
-            </div>
-          </div>
-        </div>
-        <div class="grid-item">
-          <div class="card">
-            <img class="card-img" src="images/products/5.jpg" alt="" />
-            <div class="card-content">
-              <h3 class="card-header">Calathea Vittata</h3>
-              <p class="card-price">$ 25.00</p>
-            </div>
-          </div>
-        </div>
-        <div class="grid-item">
-          <div class="card">
-            <img class="card-img" src="images/products/6.jpg" alt="" />
-            <div class="card-content">
-              <h3 class="card-header">Philodendron Pink Princess</h3>
-              <p class="card-price">$ 89.00</p>
-            </div>
-          </div>
-        </div>
-        <div class="grid-item">
-          <div class="card">
-            <img class="card-img" src="images/products/7.jpg" alt="" />
-            <div class="card-content">
-              <h3 class="card-header">Calathea Dottie</h3>
-              <p class="card-price">$ 25.00</p>
-            </div>
-          </div>
-        </div>
-        <div class="grid-item">
-          <div class="card">
-            <img class="card-img" src="images/products/8.jpg" alt="" />
-            <div class="card-content">
-              <h3 class="card-header">Ficus Lyratas</h3>
-              <p class="card-price">$ 25.00</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- End Products -->
+    </div>
+    <script src="app.js"></script>
 
-    <!-- About -->
-    <section class="about">
-      <h3 class="about-header">About</h3>
-      <p class="about-content">Order now and appreciate the beauty of nature</p>
-      <div class="about-main">
-        <div class="icon">
-          <div class="logo-icon">
-            <i class="fa-solid fa-seedling about-icon" style="color: #fff"></i>
-          </div>
-          <div class="icon-content">
-            <h3 class="icon-header">Large Assortment</h3>
-            <p class="icon-text">we offer many different types of products with fewer variations in each category.</p>
-          </div>
-        </div>
-        <div class="icon">
-          <div class="logo-icon">
-            <i class="fa-solid fa-box about-icon" style="color: #ffffff"></i>
-          </div>
-          <div class="icon-content">
-            <h3 class="icon-header">Fast & Free Shipping</h3>
-            <p class="icon-text">4-day or less delivery time, free shipping and an expedited delivery option.</p>
-          </div>
-        </div>
-        <div class="icon">
-          <div class="logo-icon">
-            <i class="fa-solid fa-headset about-icon" style="color: #ffffff"></i>
-          </div>
-          <div class="icon-content">
-            <h3 class="icon-header">24/7 Support</h3>
-            <p class="icon-text">answers to any business related inquiry 24/7 and in real-time.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- End About -->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment.min.js"></script>
+    <script src="
+https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.all.min.js
+"></script>
 
-    <!-- Start Testimonial -->
-    <section class="testimonial">
-      <h3 class="testi-header">Testimonials</h3>
-      <p class="testi-text">Some quotes from our happy customers</p>
-      <div class="row-testi">
-        <div class="col-testi">
-          <div class="testi-content">
-            <img src="images/testimonials/tahta.jpg" class="testi-img" alt="tahta" />
-            <div class="star-icon">
-              <i class="fa-solid fa-star" style="color: #56b280"></i>
-              <i class="fa-solid fa-star" style="color: #56b280"></i>
-              <i class="fa-solid fa-star" style="color: #56b280"></i>
-              <i class="fa-solid fa-star" style="color: #56b280"></i>
-              <i class="fa-solid fa-star" style="color: #56b280"></i>
-            </div>
-            <div class="user-content">
-              <h4 class="user-text">"Wow keren sekali bang"</h4>
-              <p class="user-name">Tahta</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-testi">
-          <div class="testi-content">
-            <img src="images/testimonials/adnan.jpg" class="testi-img" alt="tahta" />
-            <div class="star-icon">
-              <i class="fa-solid fa-star" style="color: #56b280"></i>
-              <i class="fa-solid fa-star" style="color: #56b280"></i>
-              <i class="fa-solid fa-star" style="color: #56b280"></i>
-              <i class="fa-solid fa-star" style="color: #56b280"></i>
-              <i class="fa-solid fa-star" style="color: #56b280"></i>
-            </div>
-            <div class="user-content">
-              <h4 class="user-text">"Baiklah bagus sekali memang"</h4>
-              <p class="user-name">Adnan</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-testi">
-          <div class="testi-content">
-            <img src="images/testimonials/fatan.jpg" class="testi-img" alt="tahta" />
-            <div class="star-icon">
-              <i class="fa-solid fa-star" style="color: #56b280"></i>
-              <i class="fa-solid fa-star" style="color: #56b280"></i>
-              <i class="fa-solid fa-star" style="color: #56b280"></i>
-              <i class="fa-solid fa-star" style="color: #56b280"></i>
-              <i class="fa-solid fa-star" style="color: #56b280"></i>
-            </div>
-            <div class="user-content">
-              <h4 class="user-text">"Ketahuilah inilah yang saya cari"</h4>
-              <p class="user-name">Fatan</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-testi">
-          <div class="testi-content">
-            <img src="images/testimonials/kobus.jpg" class="testi-img" alt="tahta" />
-            <div class="star-icon">
-              <i class="fa-solid fa-star" style="color: #56b280"></i>
-              <i class="fa-solid fa-star" style="color: #56b280"></i>
-              <i class="fa-solid fa-star" style="color: #56b280"></i>
-              <i class="fa-solid fa-star" style="color: #56b280"></i>
-              <i class="fa-solid fa-star" style="color: #56b280"></i>
-            </div>
-            <div class="user-content">
-              <h4 class="user-text">"Sangat bagus banh"</h4>
-              <p class="user-name">Cobust</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- End Testimonial -->
 
-    <!-- Start Footer -->
-    <footer>
-      <div class="footer-line">
-        <hr />
-      </div>
-      <div class="footer-container">
-        <div class="footer-content">
-          <div class="footer-col-logo">
-            <div class="footer-logo">
-              <div class="footer-logo-img">
-                <a href="#"><img src="images/logo/Plantify Transparan.png" alt="" /></a>
-                <a href="#">Plantify</a>
-              </div>
-              <p class="footer-logo-text">Your natural candle made for your home and for your wellness.</p>
-            </div>
-          </div>
-          <div class="footer-col">
-            <div class="footer-col-content">
-              <p><a href="#" class="footer-col-header">Products</a></p>
-              <p><a href="#">New season</a></p>
-              <p><a href="#">Most Searched</a></p>
-              <p><a href="#">Most Selled</a></p>
-            </div>
-          </div>
-          <div class="footer-col">
-            <div class="footer-col-content">
-              <p><a href="#" class="footer-col-header">About</a></p>
-              <p><a href="#">Help</a></p>
-              <p><a href="#">Shipping</a></p>
-              <p><a href="#">Affiliate</a></p>
-            </div>
-          </div>
-          <div class="footer-col">
-            <div class="footer-col-content">
-              <p><a href="#" class="footer-col-header">Info</a></p>
-              <p><a href="#">Contact us</a></p>
-              <p><a href="#">Privacy Policies</a></p>
-              <p><a href="#">Terms & Conditions</a></p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
-    <!-- End Footer -->
-    <script src="script.js"></script>
-  </body>
+
+
+
+</body>
+
+<!-- Bagian sweet alert -->
+<!-- belum tambahkan delay untuk submit -->
+
+<script src="dist/sweetalert2.all.min.js"></script>
+<script>
+    const btn = document.getElementById("btn");
+    btn.addEventListener("click", function () {
+        Swal.fire({
+            icon: 'success',
+            title: 'Success',
+            text: 'You are successfully login!',
+            timer: 1500
+        })
+    });
+</script>
+
 </html>
